@@ -1,18 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"taro-api/models"
+	"github.com/gin-gonic/gin"
+	"taro-api/controller"
 )
 
-func init() {
-
-}
-
 func main() {
-	arr := models.TarotCardReading()
-	for i := 0; i < len(arr); i++ {
-		fmt.Println(arr[i])
-	}
-
+	r := gin.Default()
+	r.Static("/images", "./images")
+	r.GET("/tarot", controller.GetTarotReading)
+	r.Run(":3000")
 }

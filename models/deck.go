@@ -39,13 +39,20 @@ func shuffle(cards *[]TarotCard) {
 	})
 }
 
-func TarotCardReading() []TarotCard {
+func TarotCardReading() ([]TarotCard, int) {
 	dk := newTarotDeck().Cards
+	var countOfGoodQuality int
 
 	newDeck := make([]TarotCard, maxValueForReading)
 
 	for i := 0; i < maxValueForReading; i++ {
 		newDeck[i] = dk[i]
+		if newDeck[i].IsGood == true {
+			countOfGoodQuality++
+		}
 	}
-	return newDeck
+
+	countOfGoodQuality *= 10
+
+	return newDeck, countOfGoodQuality
 }

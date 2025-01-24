@@ -64,7 +64,7 @@ func GetMajorArcanaCardImagePaths() map[string]string {
 	cardsArr := GetAllMajorArcanaArray()
 
 	for i := 0; i < len(cardsArr); i++ {
-		cards[cardsArr[i]] = imagePath + cardsArr[i]
+		cards[cardsArr[i]] = imagePath + cardsArr[i] + ".jpg"
 	}
 	return cards
 }
